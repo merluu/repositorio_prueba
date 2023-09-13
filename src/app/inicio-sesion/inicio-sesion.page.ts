@@ -9,79 +9,41 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./inicio-sesion.page.scss'],
 })
 export class InicioSesionPage implements OnInit {
-
-  public user: string ='';
-  public password : string ='';
-
-  public valorUser: string = ''; 
-  public valorPassword: string = ''; 
-  public deshabilitado: boolean = true;
-
-  public loginForm = new FormGroup({
-    user: new FormControl('',[Validators.required]),
-    password: new FormControl('',[Validators.required]),
-    
-
-  });
+  loginForm: FormGroup;
 
 
-
-  constructor(
-    private router:Router,
-    private alertController:AlertController,
-    private formBuilder: FormBuilder
-  ) {}
+    constructor(
+    private formBuilder: FormBuilder,private router: Router) {
+      this.loginForm = this.formBuilder.group({
+        user: ['', Validators.required],
+        password: ['', Validators.required],
+      }); 
+    }
 
   ngOnInit() {
     
   }
 
-  validarUser(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    this.valorUser = inputElement.value;
-    console.log(this.valorUser);
-
-    if(this.valorUser!='' && this.valorPassword !=''){
-      this.deshabilitado = false;
-    } else {
-      this.deshabilitado = true;
-    }
-    
-  }
-
-  validarPassword(event: Event) {
-    const inputElement = event.target as HTMLInputElement;
-    this.valorPassword = inputElement.value;
-    console.log(this.valorPassword);
-
-    if(this.valorUser!='' && this.valorPassword !=''){
-      this.deshabilitado = false;
-    } else {
-      this.deshabilitado = true;
-      this.router.navigate(['/inicio'])
-    }
-    
-  }
 
   navegarARegistro() {
-    this.router.navigate(['/registrarse']); // Reemplaza 'registro' con la ruta real de tu página de registro
+    this.router.navigate(['/registro']); // Reemplaza 'registro' con la ruta real de tu página de registro
   }
 
   navegarARecuperar() {
     this.router.navigate(['/recuperar-contrasenia']); 
   }
 
-  onSubmit() {
+
+  onsubmit() {
     if (this.loginForm.valid) {
-      // Ambos campos son válidos, puedes redirigir a la página perfil
-      //this.presentAlert();
-      //this.router.navigate(['/perfil']);
+      // Todos los campos están llenos, redirige a la página deseada
+      this.router.navigate(['']);
     } else {
-      // Alguno de los campos no es válido, muestra una alerta
-      this.router.navigate(['tabs/tab1']);
-      //this.presentAlert();
+      // Muestra un mensaje de error o realiza otra acción según tus necesidades
+      console.log('Por favor, complete todos los campos.');
     }
   }
+
 
   // async presentAlert() {
   //   const alert = await this.alertController.create({

@@ -1,7 +1,7 @@
-<app-encabezado titulo="Registrarse"></app-encabezado>
+<app-encabezado titulo="Recuperar clave"></app-encabezado>
 
 <ion-content class="ion-padding">
-  <h3>Registro de Usuario</h3>
+  <h3>Recuperar Contraseña</h3>
   <form [formGroup]="loginForm"  >
     <ion-item>
       <ion-input  formControlName="user" labelPlacement="floating" label="User"  type="user" aria-label="Nombre de Usuario" ></ion-input>
@@ -17,8 +17,13 @@
       <ion-input formControlName="password" labelPlacement="floating" label="Password"  type="password" aria-label="password"></ion-input>
       <ion-icon name="lock-closed-outline"></ion-icon>
     </ion-item>
+    <br>
+    <ion-item>
+      <ion-input formControlName="password2" labelPlacement="floating" label="Repetir Password"  type="password" aria-label="password"></ion-input>
+      <ion-icon name="lock-closed-outline"></ion-icon>
+      </ion-item>
     <ion-button  (click)="onsubmit()" expand="full" color="primary" type="submit" class="ion-padding" [disabled]="loginForm.invalid" >
-      Registrarse
+      Recuperar
     </ion-button>
   </form>
   

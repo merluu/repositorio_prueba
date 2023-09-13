@@ -2,20 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router} from '@angular/router';
 
-
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.page.html',
-  styleUrls: ['./registro.page.scss'],
+  selector: 'app-recuperar-contrasenia',
+  templateUrl: './recuperar-contrasenia.page.html',
+  styleUrls: ['./recuperar-contrasenia.page.scss'],
 })
-export class RegistroPage implements OnInit {
-  loginForm: FormGroup;
+export class RecuperarContraseniaPage {
+  loginForm: FormGroup; 
+
 
   constructor(private formBuilder: FormBuilder,private router: Router) { 
     this.loginForm = this.formBuilder.group({
       user: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
+      password2: ['', Validators.required],
     }); 
   }
 
