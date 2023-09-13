@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -8,13 +9,15 @@ import { Component } from '@angular/core';
 export class Tab1Page {
 
   searchTerm: string = '';
-  suggestions: string[] = ['Manzana', 'Banana', 'Cereza', 'Damasco', 'Uva', 'Kiwi'];
+  suggestions: string[] = ['Concepcion', 'Chiguayante', 'Talcahuano', 'Hualqui', 'San Pedro', 'Coronel'];
   showSuggestions: boolean = false;
   filteredSuggestions: string[] = [];
   showNoResults: boolean = false;
 
 
-  constructor() {}
+  constructor(
+    private router:Router
+  ) {}
 
   searchItems() {
     // Aquí puedes realizar la lógica de búsqueda y filtrar los elementos según 'searchTerm'
@@ -40,6 +43,11 @@ export class Tab1Page {
     this.searchTerm = suggestion;
     this.showSuggestions = false;
     this.showNoResults = false;
+  }
+
+  onClick(ruta:string)
+  {
+    this.router.navigate(['/'+ruta])
   }
 
 }
