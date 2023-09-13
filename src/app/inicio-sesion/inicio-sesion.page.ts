@@ -78,7 +78,7 @@ export class InicioSesionPage implements OnInit {
       //this.router.navigate(['/perfil']);
     } else {
       // Alguno de los campos no es válido, muestra una alerta
-      this.router.navigate(['/inicio']);
+      this.router.navigate(['tabs/tab1']);
       //this.presentAlert();
     }
   }
