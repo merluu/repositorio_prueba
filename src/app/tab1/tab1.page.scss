@@ -1,0 +1,14 @@
+/* Estilo personalizado para el ion-searchbar */
+ion-searchbar {
+    --border-radius: 20px; /* Ajusta el valor según el radio de los bordes que desees */
+    padding-left: 10px; /* Margen interno izquierdo */
+    padding-right: 10px; /* Margen interno derecho */
+    margin: 10px; /* Agrega margen externo según tus preferencias */
+}
+
+  /* Estilo personalizado para la lista de sugerencias */
+ion-list {
+    border-radius: 10px; /* Ajusta el valor según el radio de los bordes que desees */
+    margin: 10px; /* Agrega margen según tus preferencias */
+    overflow: hidden; /* Para que las sugerencias no se desborden del contenedor */
+}

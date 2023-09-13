@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-avatar slot="end">
+    <img src="../../assets/img/te_llevo.png" />
+    </ion-avatar>
+    <ion-title> Te llevo App </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <br>
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="updateSuggestions()"></ion-searchbar>
+
+  <ion-list *ngIf="showSuggestions">
+    <ion-item *ngFor="let suggestion of filteredSuggestions" (click)="selectSuggestion(suggestion)">
+      {{ suggestion }}
+    </ion-item>
+    <ion-item *ngIf="showNoResults">No hay resultados</ion-item>
+  </ion-list>
+</ion-content>
